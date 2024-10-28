@@ -94,6 +94,12 @@ elif [ "$arch" == "arm64" ]; then
     unzip $tmpdir/dnsx.zip -d $tmpdir > /dev/null 2>&1
     mv $tmpdir/dnsx ./app/tools
 
+    echo "Installing nuclei..."
+    tmpdir=$(mktemp -d)
+    wget https://github.com/projectdiscovery/nuclei/releases/download/v3.3.5/nuclei_3.3.5_linux_arm64.zip -O $tmpdir/nuclei.zip > /dev/null 2>&1
+    unzip $tmpdir/nuclei.zip -d $tmpdir > /dev/null 2>&1
+    mv $tmpdir/nuclei ./app/tools
+
 fi
 
 echo "Installing smuggler..."
